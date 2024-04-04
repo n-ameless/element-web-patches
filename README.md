@@ -1,7 +1,7 @@
 A collection of various patches I've created or modified for the Element client.
 For now there's only a greentext patch.
-[Greentext command](images/greentext.png)
-[Greentext demo](images/greentext_demo.png)
+![Greentext command](images/greentext.png)
+![Greentext demo](images/greentext_demo.png)
 ## Instructions
 1. `git clone https://github.com/element-hq/element-web.git`
 2. `cd element-web`
