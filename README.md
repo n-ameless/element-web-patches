@@ -9,20 +9,22 @@ For now there's only a greentext patch.
 7. `patch node_modules/matrix-react-sdk/src/SlashCommands.tsx element-web-patches/greentext.patch`
 8. `yarn dist`
 
-## Nix overlay
+## Nix
 You can automatically apply this patch to Element Desktop on Nix with the use of an overlay.
 ```nix
 self: super:
 {
 
-	element-web = super.element-web.overrideAttrs (oldAttrs: rec {
-  	greentext = super.fetchpatch {
-	    url = "https://git.supernets.org/nameless/element-web-patches/raw/branch/main/greentext.patch";
-   		sha256 = ""; # Replace this with the hash provided by Nix.
- 		};
+    element-web = super.element-web.overrideAttrs (oldAttrs: rec {
+  	    greentext = super.fetchpatch {
+	        url = "https://git.supernets.org/nameless/element-web-patches/raw/branch/main/greentext.patch";
+   		    sha256 = ""; # Replace this with the hash provided by Nix.
+ 	    };
 		configurePhase = oldAttrs.configurePhase + ''
 			patch node_modules/matrix-react-sdk/src/SlashCommands.tsx ${greentext}
 		'';
 	});
 }
 ```
+
+Credits to [Ren Tatsumoto](https://github.com/tatsumoto-ren) for the original greentext patch.
