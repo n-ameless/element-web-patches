@@ -20,7 +20,7 @@ self: super:
 {
   element-web = super.element-web.overrideAttrs (oldAttrs: rec {
     greentext = super.fetchpatch {
-	  url = "https://git.supernets.org/nameless/element-web-patches/raw/branch/main/greentext.patch";
+      url = "https://git.supernets.org/nameless/element-web-patches/raw/branch/main/greentext.patch";
       sha256 = ""; # Replace this with the hash provided by Nix.
     };
     configurePhase = oldAttrs.configurePhase + ''
